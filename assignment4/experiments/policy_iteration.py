@@ -37,7 +37,7 @@ class PolicyIterationExperiment(BaseExperiment):
 
         runs = 1
         for discount_factor in discount_factors:
-            t = time.clock()
+            t = time.time()
             self.log("{}/{} Processing PI with discount factor {}".format(runs, dims, discount_factor))
 
             p = solvers.PolicyIterationSolver(self._details.env, discount_factor=discount_factor,
@@ -61,7 +61,7 @@ class PolicyIterationExperiment(BaseExperiment):
             with open(grid_file_name, 'a') as f:
                 f.write('"{}",{},{},{},{},{},{},{}\n'.format(
                     json.dumps({'discount_factor': discount_factor}).replace('"', '""'),
-                    time.clock() - t,
+                    time.time() - t,
                     len(optimal_policy_stats.rewards),
                     optimal_policy_stats.reward_mean,
                     optimal_policy_stats.reward_median,

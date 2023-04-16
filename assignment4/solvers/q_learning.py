@@ -35,7 +35,7 @@ class QLearningSolver(BaseSolver):
         super(QLearningSolver, self).__init__(verbose)
 
     def step(self):
-        start_time = time.clock()
+        start_time = time.time()
 
         # Reset the environment and pick the first action
         state = self._env.reset()
@@ -53,7 +53,7 @@ class QLearningSolver(BaseSolver):
             # Update statistics
             self._stats.episode_rewards[self._steps] += reward
             self._stats.episode_lengths[self._steps] = t
-            self._stats.episode_times[self._steps] = time.clock() - start_time
+            self._stats.episode_times[self._steps] = time.time() - start_time
 
             # TD Update
             best_next_action = np.argmax(self._Q[next_state])
@@ -79,7 +79,7 @@ class QLearningSolver(BaseSolver):
         else:
             self._consecutive_sub_theta_episodes = 0
 
-        self._step_times.append(time.clock() - start_time)
+        self._step_times.append(time.time() - start_time)
 
         self._steps += 1
 

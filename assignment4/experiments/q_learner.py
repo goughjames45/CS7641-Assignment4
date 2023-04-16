@@ -47,7 +47,7 @@ class QLearnerExperiment(BaseExperiment):
                 for epsilon in epsilons:
                     for epsilon_decay in epsilon_decays:
                         for discount_factor in discount_factors:
-                            t = time.clock()
+                            t = time.time()
                             self.log("{}/{} Processing Q with alpha {}, q_init {}, epsilon {}, epsilon_decay {},"
                                      " discount_factor {}".format(
                                 runs, dims, alpha, q_init, epsilon, epsilon_decay, discount_factor
@@ -109,7 +109,7 @@ class QLearnerExperiment(BaseExperiment):
                                         'epsilon_decay': epsilon_decay,
                                         'discount_factor': discount_factor,
                                     }).replace('"', '""'),
-                                    time.clock() - t,
+                                    time.time() - t,
                                     len(optimal_policy_stats.rewards),
                                     optimal_policy_stats.reward_mean,
                                     optimal_policy_stats.reward_median,

@@ -7,54 +7,54 @@ from .frozen_lake import *
 __all__ = ['RewardingFrozenLakeEnv', 'WindyCliffWalkingEnv']
 
 register(
-    id='RewardingFrozenLake-v0',
+    id='RewardingFrozenLake-v1',
     entry_point='environments:RewardingFrozenLakeEnv',
     kwargs={'map_name': '4x4'},
 )
 
 register(
-    id='RewardingFrozenLake8x8-v0',
+    id='RewardingFrozenLake8x8-v1',
     entry_point='environments:RewardingFrozenLakeEnv',
     kwargs={'map_name': '8x8'}
 )
 
 register(
-    id='RewardingFrozenLakeNoRewards20x20-v0',
+    id='RewardingFrozenLakeNoRewards20x20-v1',
     entry_point='environments:RewardingFrozenLakeEnv',
     kwargs={'map_name': '20x20', 'rewarding': False}
 )
 
 register(
-    id='RewardingFrozenLakeNoRewards8x8-v0',
+    id='RewardingFrozenLakeNoRewards8x8-v1',
     entry_point='environments:RewardingFrozenLakeEnv',
     kwargs={'map_name': '8x8', 'rewarding': False}
 )
 
 register(
-    id='WindyCliffWalking-v0',
+    id='WindyCliffWalking-v1',
     entry_point='environments:WindyCliffWalkingEnv',
 )
 
 
 def get_rewarding_frozen_lake_environment():
-    return gym.make('RewardingFrozenLake8x8-v0')
+    return gym.make('RewardingFrozenLake8x8-v1')
 
 
 def get_frozen_lake_environment():
-    return gym.make('FrozenLake-v0')
+    return gym.make('FrozenLake-v1')
 
 
 def get_rewarding_no_reward_frozen_lake_environment():
-    return gym.make('RewardingFrozenLakeNoRewards8x8-v0')
+    return gym.make('RewardingFrozenLakeNoRewards8x8-v1')
 
 
 def get_large_rewarding_no_reward_frozen_lake_environment():
-    return gym.make('RewardingFrozenLakeNoRewards20x20-v0')
+    return gym.make('RewardingFrozenLakeNoRewards20x20-v1')
 
 
 def get_cliff_walking_environment():
-    return gym.make('CliffWalking-v0')
+    return gym.make('CliffWalking-v1')
 
 
 def get_windy_cliff_walking_environment():
-    return gym.make('WindyCliffWalking-v0')
+    return gym.make('WindyCliffWalking-v1')
