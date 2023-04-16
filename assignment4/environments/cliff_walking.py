@@ -57,7 +57,7 @@ class WindyCliffWalkingEnv(discrete.DiscreteEnv):
         winds[:, [6, 7]] = 2 * np.random.uniform(0.0, 1.0)
 
         # Cliff Location
-        self._cliff = np.zeros(self.shape, dtype=np.bool)
+        self._cliff = np.zeros(self.shape, dtype=bool)
         self._cliff[3, 1:-1] = True
 
         # Calculate transition probabilities and rewards
